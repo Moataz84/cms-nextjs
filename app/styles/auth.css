@@ -18,6 +18,10 @@
   padding: 20px 20px;
 }
 
+.auth form h2 {
+  align-self: center;
+}
+
 .auth form button {
   width: fit-content;
   border: 0;
