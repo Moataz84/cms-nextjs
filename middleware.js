@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { jwtVerify } from "jose"
+import verifyToken from "@/utils/verify-token"
 
 export async function middleware(request) {
   if (request.method === "POST") {
@@ -8,18 +8,12 @@ export async function middleware(request) {
     return NextResponse.next()
   }
 
-  let loggedIn = false
   const cookie = request.cookies.get("JWT-Token")
+  const loggedIn = await verifyToken(cookie)
 
   const baseUrl = new URL(request.url)
   const protectedRoutes = ["/dashboard", "/edit"]
 
-  try {
-    jwtVerify(cookie.value, new TextEncoder().encode(process.env.ACCESS_TOKEN))
-    loggedIn = true
-  } catch {
-    loggedIn = false
-  }
   
   if (loggedIn) {
     if (baseUrl.pathname === "/login") return NextResponse.redirect(`${baseUrl.origin}/dashboard`)
