@@ -9,16 +9,29 @@ export async function middleware(request) {
   }
 
   let loggedIn = false
-  const base = new URL(request.url)
   const cookie = request.cookies.get("JWT-Token")
 
-  try {
-    const result = verify(cookie.value, process.env.ACCESS_TOKEN)
-    loggedIn = true
-  } catch {}
-  
+  const baseUrl = new URL(request.url)
+  const protectedRoutes = ["/dashboard", "/edit"]
 
-  console.log(request.url)
+  try {
+    verify(cookie.value, process.env.ACCESS_TOKEN)
+    loggedIn = true
+  } catch {
+    loggedIn = false
+  }
+  
+  if (loggedIn) {
+    if (baseUrl.pathname === "/login") return NextResponse.redirect(`${baseUrl.origin}/dashboard`)
+    return NextResponse.next()
+  }
+
+  if (protectedRoutes.some(route => baseUrl.pathname.endsWith(route))) {
+    return NextResponse.redirect(`${baseUrl.origin}/login`)
+  }
+
+  return NextResponse.next()
+  
 }
 
 export const config = {

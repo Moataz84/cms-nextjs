@@ -6,6 +6,53 @@
   font-family: 'Noto Sans', sans-serif;
 }
 
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #f4f4f4;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  margin-bottom: 70px;
+}
+
+nav {
+  width: 80%;
+  height: 60px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 10%;
+  position: sticky;
+  top: 0;
+}
+
+nav a {
+  color: #000;
+  text-decoration: none;
+}
+
+footer {
+  width: calc(100% - 30px);
+  height: 70px;
+  background-color: black;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  padding: 0 15px;
+}
+
 .not-found {
   flex: 1;
   display: flex;
