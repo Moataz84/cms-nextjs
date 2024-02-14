@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { verify } from "jsonwebtoken"
+import { jwtVerify } from "jose"
 
 export async function middleware(request) {
   if (request.method === "POST") {
@@ -15,7 +15,7 @@ export async function middleware(request) {
   const protectedRoutes = ["/dashboard", "/edit"]
 
   try {
-    verify(cookie.value, process.env.ACCESS_TOKEN)
+    jwtVerify(cookie.value, new TextEncoder().encode(process.env.ACCESS_TOKEN))
     loggedIn = true
   } catch {
     loggedIn = false

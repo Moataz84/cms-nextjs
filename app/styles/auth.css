@@ -102,3 +102,9 @@
   padding: 0 7px;
   cursor: pointer;
 }
+
+.error-msg {
+  font-size: 14px;
+  color: #8c0c0c;
+  margin-top: -10px;
+}
