@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import verifyToken from "@/utils/verify-token"
+import getLoggedIn from "@/utils/loggedIn"
 
 export async function middleware(request) {
   if (request.method === "POST") {
@@ -9,7 +9,7 @@ export async function middleware(request) {
   }
 
   const cookie = request.cookies.get("JWT-Token")
-  const loggedIn = await verifyToken(cookie)
+  const loggedIn = await getLoggedIn(cookie)
 
   const baseUrl = new URL(request.url)
   const protectedRoutes = ["/dashboard", "/edit"]
