@@ -12,7 +12,6 @@ export async function middleware(request) {
   const loggedIn = await getLoggedIn(cookie)
 
   const baseUrl = new URL(request.url)
-  const protectedRoutes = ["/dashboard", "/edit"]
 
   
   if (loggedIn) {
@@ -20,7 +19,7 @@ export async function middleware(request) {
     return NextResponse.next()
   }
 
-  if (protectedRoutes.some(route => baseUrl.pathname.endsWith(route))) {
+  if (baseUrl.pathname.startsWith("/admin")) {
     return NextResponse.redirect(`${baseUrl.origin}/login`)
   }
 
