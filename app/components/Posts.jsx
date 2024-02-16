@@ -2,10 +2,9 @@
 import getPosts from "@/utils/actions/dashboard/get-posts"
 import { useState, useRef, useEffect } from "react"
 
-export default function Posts({ data }) {
+export default function Posts({ data, Post }) {
   const observerRef = useRef()
   const containerRef = useRef()
-  const [loading, setLoading] = useState(false)
   const [current, setCurrent] = useState(1)
   const [posts, setPosts] = useState(data)
 
@@ -26,9 +25,7 @@ export default function Posts({ data }) {
 
   return (
     <div className="posts-list" ref={containerRef}>
-      {
-        posts.map(post => <div key={post.postId}>{post.title}</div>)
-      }
+      { posts.map(post => <Post key={post.postId} post={post} />) }
     </div>
   )
 }

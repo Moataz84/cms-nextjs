@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import getLoggedIn from "@/utils/loggedIn"
+import getLoggedIn from "@/utils/actions/loggedIn"
 
 export async function middleware(request) {
   if (request.method === "POST") {
@@ -8,18 +8,15 @@ export async function middleware(request) {
     return NextResponse.next()
   }
 
-  const cookie = request.cookies.get("JWT-Token")
-  const loggedIn = await getLoggedIn(cookie)
-
+  const loggedIn = await getLoggedIn()
   const baseUrl = new URL(request.url)
 
-  
   if (loggedIn) {
     if (baseUrl.pathname === "/admin/login") return NextResponse.redirect(`${baseUrl.origin}/admin/dashboard`)
     return NextResponse.next()
   }
 
-  if (baseUrl.pathname.startsWith("/admin") && !baseUrl.pathname.endsWith("/login")) {
+  if ((baseUrl.pathname.startsWith("/admin") || baseUrl.pathname.endsWith("/edit")) && !baseUrl.pathname.endsWith("/login")) {
     return NextResponse.redirect(`${baseUrl.origin}/admin/login`)
   }
 

@@ -1,6 +1,7 @@
+import { headers } from "next/headers"
 import getPosts from "@/utils/actions/dashboard/get-posts"
-import LogoutButton from "@/app/components/dashboard/Logout"
-import Posts from "@/app/components/dashboard/Posts"
+import Posts from "@/app/components/Posts"
+import DashboardPost from "@/app/components/DashboardPost"
 import "@/app/styles/dashboard.css"
 
 export const metadata = {
@@ -8,14 +9,14 @@ export const metadata = {
 }
 
 export default async function DashboardPage() {
+  headers()
 
   const posts = await getPosts(0)
 
   return (
     <div className="dashboard">
       <h2>Dashboard</h2>
-      <Posts data={posts} />
-      <LogoutButton />
+      <Posts data={posts} Post={DashboardPost} />
     </div>
   )
 }
