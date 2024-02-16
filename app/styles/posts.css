@@ -1,0 +1,32 @@
+.posts-container {
+  width: 50%;
+}
+
+.posts-container h2 {
+  margin-bottom: 20px;
+}
+
+.posts-container .posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.page-post {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.page-post a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.page-post b {
+  font-size: 14px;
+}

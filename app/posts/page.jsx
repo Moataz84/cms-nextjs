@@ -1,4 +1,4 @@
-import getPosts from "@/utils/actions/dashboard/get-posts"
+import getPosts from "@/utils/actions/get-posts"
 import Posts from "@/app/components/Posts"
 import PagePost from "@/app/components/PagePost"
 
@@ -13,6 +13,7 @@ export default async function PostsPage() {
 
   return (
     <div className="posts-container">
+      <h2>Posts</h2>
       <Posts data={posts} Post={PagePost} />
     </div>
   )

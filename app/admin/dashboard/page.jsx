@@ -1,8 +1,7 @@
 import { headers } from "next/headers"
-import getPosts from "@/utils/actions/dashboard/get-posts"
+import getPosts from "@/utils/actions/get-posts"
 import Posts from "@/app/components/Posts"
 import DashboardPost from "@/app/components/DashboardPost"
-import "@/app/styles/dashboard.css"
 
 export const metadata = {
   title: "Dashboard"

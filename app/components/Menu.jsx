@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 import { usePathname, useRouter } from "next/navigation"
 import getLoggedIn from "@/utils/actions/loggedIn"
-import { default as logout_server } from "@/utils/actions/dashboard/logout"
+import { default as logout_server } from "@/utils/actions/logout"
 import { CiLogout } from "react-icons/ci"
 import Link from "next/link"
 import "@/app/styles/globals.css"

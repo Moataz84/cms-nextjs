@@ -1,6 +1,7 @@
 "use client"
-import getPosts from "@/utils/actions/dashboard/get-posts"
+import getPosts from "@/utils/actions/get-posts"
 import { useState, useRef, useEffect } from "react"
+import "@/app/styles/posts.css"
 
 export default function Posts({ data, Post }) {
   const observerRef = useRef()
