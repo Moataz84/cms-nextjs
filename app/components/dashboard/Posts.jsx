@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from "react"
 export default function Posts({ data }) {
   const observerRef = useRef()
   const containerRef = useRef()
+  const [loading, setLoading] = useState(false)
   const [current, setCurrent] = useState(1)
   const [posts, setPosts] = useState(data)
 
@@ -17,7 +18,7 @@ export default function Posts({ data }) {
         setCurrent(prev => prev + 1)
         observer.unobserve(entries[0].target)
       }
-    })
+    }, {threshold: 1})
     observerRef.current = observer
 
     observer.observe(containerRef.current.lastElementChild)
