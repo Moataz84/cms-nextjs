@@ -15,18 +15,17 @@ export async function middleware(request) {
 
   
   if (loggedIn) {
-    if (baseUrl.pathname === "/login") return NextResponse.redirect(`${baseUrl.origin}/dashboard`)
+    if (baseUrl.pathname === "/admin/login") return NextResponse.redirect(`${baseUrl.origin}/admin/dashboard`)
     return NextResponse.next()
   }
 
-  if (baseUrl.pathname.startsWith("/admin")) {
-    return NextResponse.redirect(`${baseUrl.origin}/login`)
+  if (baseUrl.pathname.startsWith("/admin") && !baseUrl.pathname.endsWith("/login")) {
+    return NextResponse.redirect(`${baseUrl.origin}/admin/login`)
   }
 
   return NextResponse.next()
-  
 }
 
 export const config = {
-  matcher: ["/", "/login", "/dashboard", "/posts/:path*", "/create-post"]
+  matcher: ["/", "/admin/:path*", "/posts/:path*"]
 }

@@ -40,6 +40,10 @@ nav a {
   text-decoration: none;
 }
 
+nav a:hover {
+  color: #000000ac;
+}
+
 footer {
   width: calc(100% - 30px);
   height: 70px;

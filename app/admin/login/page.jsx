@@ -11,6 +11,7 @@ export default function LoginPage() {
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 
   async function submit(e) {
@@ -21,9 +22,12 @@ export default function LoginPage() {
       return setError("All fields are required.")
     }
 
+    setLoading(true)
     const result = await login(username, password)
+    setLoading(false)
+
     if (result === true) {
-      return router.push("/")
+      return router.push("/admin/dashboard")
     }
 
     return setError(result)
@@ -32,6 +36,7 @@ export default function LoginPage() {
   return (
     <div className="auth">
       <form className="login">
+        { loading? <div className="loading"></div> : <></> }
         <h2>Sign In</h2>
         <Input name="Username" type="text" value={username} setValue={setUsername} setMsg={setError} />
         <Input name="Password" type="password" value={password} setValue={setPassword} setMsg={setError} />
