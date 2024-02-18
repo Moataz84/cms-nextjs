@@ -24,7 +24,6 @@ export default function Menu() {
   return (
     <nav>
       <Link href="/">Home</Link>
-      <Link href="/posts">Posts</Link>
       {!loggedIn? <></> :
         <>
           <Link href="/admin/dashboard">Dashboard</Link>

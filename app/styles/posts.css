@@ -1,32 +1,69 @@
 .posts-container {
-  width: 50%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .posts-container h2 {
   margin-bottom: 20px;
 }
 
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 80px;
+}
+
+.search label {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.search input {
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 17px;
+}
+
 .posts-container .posts-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 80px;
 }
 
 .page-post {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 10px 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: flex-start;
 }
 
-.page-post a {
-  color: #1a73e8;
+.page-post .title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
   text-decoration: none;
 }
 
-.page-post b {
-  font-size: 14px;
+.page-post .title:hover {
+  text-decoration: underline;
+}
+
+.page-post span {
+  color: #9ca3af;
+}
+
+.page-post .preview {
+  font-size: 18px;
+  color: #4b5563;
+  margin-top: 16px;
+}
+
+.page-post a:last-of-type {
+  font-size: 18px;
+  color: #00aaff;
+  text-decoration: none;
+}
+
+.page-post a:last-of-type:hover {
+  text-decoration: underline;
 }
