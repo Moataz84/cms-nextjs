@@ -4,6 +4,7 @@ const schema = new Schema({
   postId: String,
   title: String,
   body: String,
+  tags: Array,
   createdAt: String
 })
 
