@@ -1,5 +1,5 @@
 .posts-container {
-  max-width: 800px;
+  width: 800px;
   margin: 0 auto;
 }
 
@@ -20,7 +20,7 @@
 }
 
 .search input {
-  width: 100%;
+  width: calc(100% - 23px);
   padding: 5px 10px;
   font-size: 17px;
 }

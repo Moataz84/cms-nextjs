@@ -12,10 +12,9 @@ function getPreview(body) {
   return `${text.substring(0, 150)} ...`
 }
 
-export default async function getPosts(start, search = "") {
+export default async function getPosts() {
   await connectDB()
-  const regex = new RegExp(search, "i")
-  const posts = await Posts.find({$or: [{title: regex}, {body: regex}]}).skip(start * 20).limit(20)
+  const posts = await Posts.find()
   return posts.map(post => {
     const postData = post._doc
     return {

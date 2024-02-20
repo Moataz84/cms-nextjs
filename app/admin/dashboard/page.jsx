@@ -10,7 +10,7 @@ export const metadata = {
 export default async function DashboardPage() {
   headers()
 
-  const posts = await getPosts(0)
+  const posts = await getPosts()
 
   return (
     <div className="dashboard">

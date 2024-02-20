@@ -9,7 +9,7 @@ export const metadata = {
 }
 
 export default async function PostsPage() {
-  const posts = await getPosts(0)
+  const posts = await getPosts()
 
   return (
     <div className="posts-container">
