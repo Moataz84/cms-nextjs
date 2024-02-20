@@ -24,5 +24,5 @@ export default async function getPosts() {
       createdAt: postData.createdAt,
       preview: getPreview(postData.body)
     }
-  })
+  }).sort((a, b) => b.createdAt - a.createdAt)
 }
