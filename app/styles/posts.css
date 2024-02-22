@@ -87,6 +87,7 @@
 }
 
 .dashboard-post a {
+  width: fit-content;
   color: #1a73e8;
   text-decoration: none;
 }
