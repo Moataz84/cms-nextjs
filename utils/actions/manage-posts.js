@@ -1,7 +1,7 @@
 "use server"
 import { v4 } from "uuid"
 import imagekit from "../imagekit"
-import Users from "../Models/Users"
+import Posts from "../Models/Posts"
 
 export async function createPost(title, body) {
   const postId = v4()
@@ -15,12 +15,21 @@ export async function createPost(title, body) {
         imagekit.upload({
           file: image,
           fileName: v4(),
-          folder: `forum/posts/${id}`
+          folder: `next-cms/${postId}`
         }, (e, result) => resolve({image, url: result.url}))
       })
     })
   )
   imageUrls.forEach(img => body = body.replaceAll(img.image, img.url))
+
+  await new Posts({
+    postId,
+    title,
+    body,
+    createdAt: new Date().getTime()
+  }).save()
+
+  return postId
 }
 
 export async function editPost() {

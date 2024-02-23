@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
 import ReactQuill from "react-quill"
-import { createPost, editPost } from "@/utils/actions/texteditor"
+import { createPost, editPost } from "@/utils/actions/manage-posts"
 import "react-quill/dist/quill.snow.css"
 import "@/app/styles/editor.css"
 import { useRouter } from "next/navigation"
@@ -28,11 +28,11 @@ export default function TextEditor({ postId, postTitle, postBody }) {
     setError("")
     if (!title || !body) return setError("All fields are required")
     if (!postTitle) {
-      const id = await createPost()
+      const id = await createPost(title, body)
       router.push(`/posts/${id}`)
       return
     }
-    await editPost()
+    await editPost(title, body)
     router.push(`/posts/${postId}`)
   }
   
