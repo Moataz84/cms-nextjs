@@ -91,3 +91,21 @@
   color: #1a73e8;
   text-decoration: none;
 }
+
+.post-container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.post-container h1 {
+  font-size: 36px;
+}
+
+.post-container .date {
+  font-size: 18px;
+  color: #9ca3af;
+}
+
+.post-container .post-body {
+  margin-top: 60px;
+}

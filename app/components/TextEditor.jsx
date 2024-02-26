@@ -1,10 +1,10 @@
 "use client"
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import ReactQuill from "react-quill"
 import { createPost, editPost } from "@/utils/actions/manage-posts"
 import "react-quill/dist/quill.snow.css"
 import "@/app/styles/editor.css"
-import { useRouter } from "next/navigation"
 
 const modules = {
   toolbar: {
