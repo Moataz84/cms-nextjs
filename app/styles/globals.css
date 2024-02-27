@@ -43,6 +43,20 @@ nav a:hover {
   color: #000000ac;
 }
 
+nav button {
+  border: 0;
+  border-radius: 3px;
+  background-color: #1a73e8;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 footer {
   width: calc(100% - 30px);
   height: 70px;

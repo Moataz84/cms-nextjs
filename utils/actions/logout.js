@@ -1,5 +1,5 @@
 "use server"
-import { cookies } from "next/headers";
+import { cookies } from "next/headers"
 
 export default async function logout() {
   cookies().delete("JWT-Token")

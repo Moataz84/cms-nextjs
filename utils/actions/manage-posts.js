@@ -1,7 +1,7 @@
 "use server"
 import { v4 } from "uuid"
-import imagekit from "../imagekit"
-import Posts from "../Models/Posts"
+import imagekit from "@/utils/imagekit"
+import Posts from "@/utils/Models/Posts"
 
 export async function createPost(title, body) {
   const postId = v4()
@@ -34,4 +34,8 @@ export async function createPost(title, body) {
 
 export async function editPost() {
 
+}
+
+export async function deletePost(postId) {
+  await Posts.findOneAndDelete({postId})
 }

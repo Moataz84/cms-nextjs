@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { usePathname, useRouter } from "next/navigation"
 import getLoggedIn from "@/utils/actions/loggedIn"
 import { default as logout_server } from "@/utils/actions/logout"
-import { CiLogout } from "react-icons/ci"
+import { MdLogout } from "react-icons/md"
 import Link from "next/link"
 import "@/app/styles/globals.css"
 
@@ -30,7 +30,7 @@ export default function Menu() {
           <Link href="/admin/settings">Settings</Link>
           <Link href="/admin/post">Create Post</Link>
           <button onClick={logout}>
-            <CiLogout />
+            <MdLogout size={24} />
             Logout
           </button>
         </>
