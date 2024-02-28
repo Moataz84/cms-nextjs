@@ -38,4 +38,7 @@ export async function editPost() {
 
 export async function deletePost(postId) {
   await Posts.findOneAndDelete({postId})
+  try {
+    imagekit.deleteFolder(`/cms-next/${postId}`)
+  } catch {}
 }

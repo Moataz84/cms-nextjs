@@ -2,13 +2,14 @@
 import { useState, useEffect } from "react"
 import "@/app/styles/posts.css"
 
-export default function Posts({ data, Post }) {
+export default function Posts({ postData, Post }) {
+  const [data, setData] = useState(postData)
   const [posts, setPosts] = useState(data)
   const [search, setSearch] = useState("")
 
   useEffect(() => {
     setPosts(data.filter(post => post.title.includes(search) || post.body.includes(search)))
-  }, [search])
+  }, [search, data])
 
   return (
     <>
@@ -17,7 +18,7 @@ export default function Posts({ data, Post }) {
         <input type="text" onChange={e => setSearch(e.target.value)} />
       </div>
       <div className="posts-list">
-        { posts.map(post => <Post key={post.postId} post={post} />) }
+        { posts.map(post => <Post key={post.postId} post={post} setPosts={setData} />) }
       </div>
     </>
   )

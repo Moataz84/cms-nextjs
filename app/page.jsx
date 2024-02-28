@@ -14,7 +14,7 @@ export default async function PostsPage() {
   return (
     <div className="posts-container">
       <h2>Posts</h2>
-      <Posts data={posts} Post={PagePost} />
+      <Posts postData={posts} Post={PagePost} />
     </div>
   )
 }

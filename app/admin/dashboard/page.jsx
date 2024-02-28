@@ -15,7 +15,7 @@ export default async function DashboardPage() {
   return (
     <div className="posts-container dashboard">
       <h2>Dashboard</h2>
-      <Posts data={posts} Post={DashboardPost} />
+      <Posts postData={posts} Post={DashboardPost} />
     </div>
   )
 }

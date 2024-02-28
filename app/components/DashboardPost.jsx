@@ -1,17 +1,14 @@
 "use client"
 import { deletePost as deleteServer } from "@/utils/actions/manage-posts"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
 
-export default function DashboardPost({ post }) {
-
-  const router = useRouter()
+export default function DashboardPost({ post, setPosts }) {
 
   async function deletePost(postId) {
     const confirmed = confirm("Are you sure you want to delete this post? This action is irreversible.")
     if (confirmed) {
       await deleteServer(postId)
-      router.refresh()
+      setPosts(prev => prev.filter(post => post.postId !== postId))
     }
   }
 
