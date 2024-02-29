@@ -1,14 +1,5 @@
-import Posts from "@/utils/Models/Posts"
-import connectDB from "@/utils/db"
-import { notFound } from "next/navigation"
+import getPost from "@/utils/actions/get-post"
 import "@/app/styles/posts.css"
-
-async function getPost(postId) {
-  connectDB()
-  const post = await Posts.findOne({postId})
-  if (!post) return notFound()
-  return post
-}
 
 export async function generateMetadata({ params: { postId } }) {
   const post = await getPost(postId)

@@ -17,9 +17,13 @@ export default function Posts({ postData, Post }) {
         <label>Search</label>
         <input type="text" onChange={e => setSearch(e.target.value)} />
       </div>
-      <div className="posts-list">
-        { posts.map(post => <Post key={post.postId} post={post} setPosts={setData} />) }
-      </div>
+      {
+        posts.length > 0?
+          <div className="posts-list">
+            { posts.map(post => <Post key={post.postId} post={post} setPosts={setData} />) }
+          </div>
+        : <h3 style={{textAlign: "center"}}>No results found</h3>
+      }
     </>
   )
 }
