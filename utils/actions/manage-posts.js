@@ -1,15 +1,15 @@
 "use server"
 import { v4 } from "uuid"
+import { JSDOM } from "jsdom"
 import imagekit from "@/utils/imagekit"
 import Posts from "@/utils/Models/Posts"
 import connectDB from "@/utils/db"
 
-const pattern = /<img[^>]+src="([^">]+)"/g
-
 export async function createPost(title, body) {
   await connectDB()
   const postId = v4()
-  const images = new Set([...body.matchAll(pattern)].map(match => match[1]))
+  const document = new JSDOM(body).window.document
+  const images = new Set([...document.querySelectorAll("img")].map(elem => elem.src))
 
   const imageUrls = await Promise.all(
     [...images].map(image => {
@@ -37,10 +37,11 @@ export async function createPost(title, body) {
 
 export async function editPost(postId, title, body) {
   await connectDB()
-  const images = new Set([...body.matchAll(pattern)].map(match => match[1]))
+  const document = new JSDOM(body).window.document
+  const images = new Set([...document.querySelectorAll("img")].map(elem => elem.src))
   const imageUrls = await Promise.all(
     [...images].map(image => {
-      if (image.includes("https://ik.imagekit.io/pk4i4h8ea/next-cms/")) return
+      if (!image.includes("https://ik.imagekit.io/pk4i4h8ea/next-cms/"))
       return new Promise(resolve => {
         imagekit.upload({
           file: image,
@@ -50,6 +51,7 @@ export async function editPost(postId, title, body) {
       })
     })
   )
+
   imageUrls.filter(img => img !== undefined).forEach(img => body = body.replaceAll(img.image, img.url))
   await Posts.findOneAndUpdate({postId}, {$set: {title, body}})
 }
