@@ -55,10 +55,6 @@
   padding: 8px 8px 8px 16px !important;
 }
 
-.ql-editor blockquote, .ql-editor ol, .ql-editor ul, .ql-editor {
-  margin: 8px 0 !important;
-}
-
 .ql-editor img {
   width: 100% !important;
   height: auto !important;

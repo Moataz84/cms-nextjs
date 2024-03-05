@@ -27,7 +27,6 @@ export default function Menu() {
       {!loggedIn? <></> :
         <>
           <Link href="/admin/dashboard">Dashboard</Link>
-          <Link href="/admin/settings">Settings</Link>
           <Link href="/admin/post">Create Post</Link>
           <button onClick={logout}>
             <MdLogout size={24} />

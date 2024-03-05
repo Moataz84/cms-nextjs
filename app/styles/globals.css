@@ -26,7 +26,8 @@ nav {
   height: 60px;
   background-color: #fff;
   border-bottom: 1px solid #ccc;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, auto) 1fr;
   align-items: center;
   gap: 20px;
   padding: 0 10%;
@@ -45,6 +46,7 @@ nav a:hover {
 }
 
 nav button {
+  width: fit-content;
   border: 0;
   border-radius: 3px;
   background-color: #1a73e8;
@@ -56,6 +58,7 @@ nav button {
   display: flex;
   align-items: center;
   gap: 5px;
+  justify-self: end;
 }
 
 footer {

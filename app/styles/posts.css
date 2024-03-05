@@ -116,5 +116,7 @@
 }
 
 .post-container .post-body {
-  margin-top: 60px;
+  min-height: 0 !important;
+  margin-top: 60px !important;
+  resize: none !important;
 }
