@@ -8,7 +8,7 @@ export default function Posts({ postData, Post }) {
   const [search, setSearch] = useState("")
 
   useEffect(() => {
-    setPosts(data.filter(post => post.title.includes(search) || post.body.includes(search)))
+    setPosts(data.filter(post => post.title.toLowerCase().includes(search.toLowerCase()) || post.body.toLowerCase().includes(search.toLowerCase())))
   }, [search, data])
 
   return (
