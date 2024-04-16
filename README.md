@@ -26,9 +26,7 @@ To run this project:
   - `ACCESS_TOKEN`: A random token used for JWT authentication
   - `PUBLIC_KEY`: Your ImageKit public key
   - `PRIVATE_KEY`: Your ImageKit private key
-
 4. Replace the `urlEndpoint` parameter with your ImageKit url endpoint in the `utils/imagekit.js`.
-
 5. Run `npm run dev` to start in a development environment or `npm build` then `npm start` to start in a production environment.
 
 ## License
