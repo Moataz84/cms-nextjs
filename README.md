@@ -19,8 +19,8 @@ This project uses Node JS, Next JS, MongoDB and ImageKit.
 ## Setup
 To run this project:
 
-1. Clone this repository
-2. Run `npm install` to install dependencies
+1. Clone this repository.
+2. Run `npm install` to install dependencies.
 3. Create a `.env.local` file and add the follwing variables:
   - `DB_URI`: Your MongoDB connection string
   - `ACCESS_TOKEN`: A random token used for JWT authentication
